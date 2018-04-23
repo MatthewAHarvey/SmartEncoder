@@ -1,0 +1,36 @@
+<C> is the command ascii letter
+S for state (0 - off, 1 - encoder only, 2 - button only, 3 - both on)
+D for debounce (0 to 9999ms)
+C for double click max threshold (0 to 9999ms)
+H for hold time min threshold (0 to 9999ms)
+2 for encoder rate 2 max (0 to 9999ms)
+3 for encoder rate 3 max (0 to 9999ms)
+
+<STX><A1><A0><C><n3><n2><n1><n0><checksum><LF>
+
+If I get <STX><0><2><H><1><0><0><0><checksum><LF> what happens?
+
+<STX> starts serial message recording so msgIndex = 0
+<0> goes in message[0], msgIndex = 1
+<1> goes in message[1], msgIndex = 2
+<H> goes in message[2], msgIndex = 3
+<1> goes in message[3], msgIndex = 4
+<0> goes in message[4], msgIndex = 5
+<0> goes in message[5], msgIndex = 6
+<0> goes in message[6], msgIndex = 7
+<checksum> goes in message[7], msgIndex = 8
+<LF> received so calculate checksum and parseMessage if it matches
+    Checksum is message[msgIndex - 1]
+    message to checksum is message[0] to message[6] 
+    i.e. checksum(message, msgIndex)
+
+
+What happens when I get a message?
+1. If checksum matches
+    2. If the message is set address, set my address, increment address, calculate new checksum and pass new message on
+    3. Else If the message was global or for me, act on message and pass message along
+    4. Else, pass message on
+2. Else discard message
+
+Build slave unit class on top of serial message class
+Build master unit class on top of serial message class
