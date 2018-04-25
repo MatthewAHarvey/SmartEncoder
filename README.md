@@ -14,3 +14,7 @@ Arduino IDE settings for ATTINY85:
 
 Schematic for the FreqCal rotary encoder programme:
 ![Schematic](/FreqCal/Images/Schematic.PNG)
+
+2. Now upload the ATTINY85RotEncCode sketch to each of the ATTINYs.
+
+3. The example SEHandlerTest programme can be uploaded to the master arduino mega.
