@@ -10,4 +10,4 @@ In order for this to work, the ATTINY85s' clock frequencies must be set more acc
 1. First, the ATTINYs must be frequency calibrated. We do this by burning the arduino bootloader on to an ATTINY and uploading the FreqCal sketch. We output a square wave from pin 6 and observe it using an oscilloscope. An attached rotary encoder is then used to adjust this signal until it is as close to 1 MHz as possible. Pressing the encoder button saves the current OSCCAL register value to the EEPROM. 
 
 Arduino IDE settings for ATTINY85:
-![ATTINY85 Settings](/FreqCal/Images/ATTINY85_Settings.png)
+![ATTINY85 Settings](/FreqCal/Images/ATTINY85_Settings.png | width=100)
