@@ -11,3 +11,6 @@ In order for this to work, the ATTINY85s' clock frequencies must be set more acc
 
 Arduino IDE settings for ATTINY85:
 ![ATTINY85 Settings](/FreqCal/Images/ATTINY85_Settings.png)
+
+Schematic for the FreqCal rotary encoder programme:
+![ATTINY85 Settings](/FreqCal/Images/Schematic.png)
