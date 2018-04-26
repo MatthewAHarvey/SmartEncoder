@@ -77,14 +77,3 @@ void loop() {
             break;
     }
 }
-if(fine){
-    rate1 = 1;
-    rate2 = 1;
-    rate3 = 10;
-}
-else
-{
-    rate1 = 1;
-    rate2 = 10;
-    rate3 = 100;
-}

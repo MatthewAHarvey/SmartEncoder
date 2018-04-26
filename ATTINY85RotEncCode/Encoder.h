@@ -140,7 +140,7 @@ class Encoder
         unsigned int buttonHoldMin = 1000;
 
         // encoder settings
-        unsigned int rate2Threshold = 125;
+        unsigned int rate2Threshold = 75;
         unsigned int rate3Threshold = 25;
 
         // timers
