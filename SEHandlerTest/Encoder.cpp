@@ -28,7 +28,7 @@ void Encoder::init()
     buttonDoubleClickTimer.updateTimeOut(doubleClickMax);
 }
 
-resultEnum Encoder::poll()
+resultEnum Encoder::poll(bool rateless)
 {
     
     if(buttonEnabled)
@@ -151,11 +151,11 @@ resultEnum Encoder::poll()
                         state = IDLE;
                         unsigned int encoderTimeDiff = encoderTimer.elapsed();
                         encoderTimer.reset();
-                        if(encoderTimeDiff < rate3Threshold)
+                        if(encoderTimeDiff < rate3Threshold && !rateless)
                         {
                             return ACW_RATE3;
                         }
-                        else if(encoderTimeDiff < rate2Threshold)
+                        else if(encoderTimeDiff < rate2Threshold && !rateless)
                         {
                             return ACW_RATE2;
                         }
@@ -228,11 +228,11 @@ resultEnum Encoder::poll()
                         state = IDLE;
                         unsigned int encoderTimeDiff = encoderTimer.elapsed();
                         encoderTimer.reset();
-                        if(encoderTimeDiff < rate3Threshold)
+                        if(encoderTimeDiff < rate3Threshold && !rateless)
                         {
                             return CW_RATE3;
                         }
-                        else if(encoderTimeDiff < rate2Threshold)
+                        else if(encoderTimeDiff < rate2Threshold && !rateless)
                         {
                             return CW_RATE2;
                         }
@@ -258,6 +258,11 @@ resultEnum Encoder::poll()
         }
     }
     return NO_CHANGE;
+}
+
+resultEnum Encoder::poll_rateless()
+{
+    return poll(true);
 }
 
 unsigned int Encoder::getButtonHoldTime()
