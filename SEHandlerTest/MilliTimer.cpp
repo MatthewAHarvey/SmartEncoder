@@ -24,14 +24,14 @@ unsigned long MilliTimer::elapsed(){
   return current-start;
 }
 
-bool MilliTimer::timedOut(){
-  if(elapsed() >= timeOut){
-    return true;
-  }
-  else{
-    return false;
-  }
-}
+// bool MilliTimer::timedOut(){
+//   if(elapsed() >= timeOut){
+//     return true;
+//   }
+//   else{
+//     return false;
+//   }
+// }
 
 bool MilliTimer::timedOut(bool RESET){
   if(elapsed() >= timeOut){
