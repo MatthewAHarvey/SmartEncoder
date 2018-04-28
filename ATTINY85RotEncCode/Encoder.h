@@ -94,8 +94,9 @@ class Encoder
         Encoder(uint8_t pinA, uint8_t pinB, uint8_t pinC);
         
         void init(); // Setup pins
-        resultEnum poll(); // checks the state of the encoder and returns new steps if necessary. Call in pinchange interrupt routine or poll in main loop. If polling, do not including blocking code such as delay()!
-        
+        resultEnum poll(bool rateless = false); // checks the state of the encoder and returns new steps if necessary. Call in pinchange interrupt routine or poll in main loop. If polling, do not including blocking code such as delay()!
+        resultEnum poll_rateless();
+
         unsigned int getButtonHoldTime();
         unsigned int getDoubleClickMax();
         unsigned int getDebounceTime();
@@ -140,7 +141,7 @@ class Encoder
         unsigned int buttonHoldMin = 1000;
 
         // encoder settings
-        unsigned int rate2Threshold = 75;
+        unsigned int rate2Threshold = 125;
         unsigned int rate3Threshold = 25;
 
         // timers

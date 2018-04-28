@@ -1,6 +1,51 @@
 #ifndef Encoder_h
 #define Encoder_h
 
+// A simple to use rotary encoder class. Place the poll function in an interrupt routine or main code. Must be checked very regularly if in main code or it WILL miss events.
+// A helper function to perform actions based on encoder results
+// void checkEncoder()
+// {
+//     if(state == RUNNING)
+//     {
+//         switch(enc.poll())
+//         {
+//             case NO_CHANGE:
+//                 break;
+//             case CW_RATE1: 
+//                 
+//                 break;
+//             case CW_RATE2:
+//                 
+//                 break;
+//             case CW_RATE3: 
+//                 
+//                 break;
+//             case ACW_RATE1: 
+//                 
+//                 break;
+//             case ACW_RATE2: 
+//                 
+//                 break;
+//             case ACW_RATE3: 
+//                 
+//                 break;
+//             case BUTTON_UP: 
+//                 
+//                 break;
+//             case BUTTON_DOWN: 
+//                 
+//                 break;
+//             case BUTTON_DOUBLECLICK: 
+//                 
+//                 break;
+//             case BUTTON_HOLD:
+//                 
+//                 break;
+//         }
+//     }
+// }
+
+
 #include "MilliTimer.h"
 #include "arduino.h"
 
@@ -49,8 +94,9 @@ class Encoder
         Encoder(uint8_t pinA, uint8_t pinB, uint8_t pinC);
         
         void init(); // Setup pins
-        resultEnum poll(); // checks the state of the encoder and returns new steps if necessary. Call in pinchange interrupt routine or poll in main loop. If polling, do not including blocking code such as delay()!
-        
+        resultEnum poll(bool rateless = false); // checks the state of the encoder and returns new steps if necessary. Call in pinchange interrupt routine or poll in main loop. If polling, do not including blocking code such as delay()!
+        resultEnum poll_rateless();
+
         unsigned int getButtonHoldTime();
         unsigned int getDoubleClickMax();
         unsigned int getDebounceTime();
