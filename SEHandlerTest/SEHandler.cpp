@@ -64,7 +64,7 @@ uint8_t SEHandler::setStartAddress(uint8_t startAddress)
     return 0;
 }
 
-event_t SEHandler::poll()
+event_t SEHandler::poll(bool rateless)
 {
     event_t event;
     if(checkSerial())
@@ -110,7 +110,17 @@ event_t SEHandler::poll()
             }
         }
     }
+    if(rateless) // just return rate1 so less checks have to be made if they aren't wanted.
+    {
+        if     (event.result == CW_RATE2 || event.result == CW_RATE3)   { event.result = CW_RATE1; }
+        else if(event.result == ACW_RATE2 || event.result == ACW_RATE3) { event.result = ACW_RATE1; }
+    }
     return event;
+}
+
+event_t SEHandler::poll_rateless()
+{
+    return poll(true);
 }
 
 bool SEHandler::setButtonHoldTime(uint8_t address, uint16_t t)

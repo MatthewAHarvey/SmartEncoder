@@ -49,7 +49,8 @@ class SEHandler
         uint8_t init(); // Defaults to address 0.
         uint8_t init(uint8_t startAddress);
         uint8_t setStartAddress(uint8_t startAddress);
-        event_t poll();
+        event_t poll(bool rateless = false);
+        event_t poll_rateless();
 
         bool setButtonHoldTime(uint8_t address, uint16_t t);
         bool setDoubleClickMax(uint8_t address, uint16_t t);
