@@ -1,0 +1,219 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:RotaryEncoderAttiny85-cache
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Rotary_Encoder_Switch SW1
+U 1 1 5A785A70
+P 3250 2700
+F 0 "SW1" H 3250 2960 50  0000 C CNN
+F 1 "Rotary_Encoder_Switch" H 3250 2440 50  0000 C CNN
+F 2 "MatthewLib:RotEnc" H 3150 2860 50  0001 C CNN
+F 3 "" H 3250 2960 50  0001 C CNN
+	1    3250 2700
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR01
+U 1 1 5A785AF9
+P 3250 3250
+F 0 "#PWR01" H 3250 3000 50  0001 C CNN
+F 1 "GND" H 3250 3100 50  0000 C CNN
+F 2 "" H 3250 3250 50  0000 C CNN
+F 3 "" H 3250 3250 50  0000 C CNN
+	1    3250 3250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3750 3150 3750 2800
+Wire Wire Line
+	3750 2800 3550 2800
+$Comp
+L ATTINY85-P IC1
+U 1 1 5A785B17
+P 5000 1850
+F 0 "IC1" H 3850 2250 50  0000 C CNN
+F 1 "ATTINY85-P" H 6000 1450 50  0000 C CNN
+F 2 "Housings_SOIC:SO-8_5.3x6.2mm_Pitch1.27mm" H 6000 1850 50  0000 C CIN
+F 3 "" H 5000 1850 50  0000 C CNN
+	1    5000 1850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2850 1800 3650 1800
+Wire Wire Line
+	2850 1800 2850 2600
+Wire Wire Line
+	2850 2600 2950 2600
+Wire Wire Line
+	2950 2800 2700 2800
+Wire Wire Line
+	2700 2800 2700 1700
+Wire Wire Line
+	2700 1700 3650 1700
+$Comp
+L GND #PWR02
+U 1 1 5A785C8F
+P 6500 2250
+F 0 "#PWR02" H 6500 2000 50  0001 C CNN
+F 1 "GND" H 6500 2100 50  0000 C CNN
+F 2 "" H 6500 2250 50  0000 C CNN
+F 3 "" H 6500 2250 50  0000 C CNN
+	1    6500 2250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2850 2700 2850 3150
+Wire Wire Line
+	2950 2700 2850 2700
+Wire Wire Line
+	6500 2000 6500 2250
+Wire Wire Line
+	6500 2100 6350 2100
+$Comp
+L +5V #PWR03
+U 1 1 5A785D2A
+P 6500 1550
+F 0 "#PWR03" H 6500 1400 50  0001 C CNN
+F 1 "+5V" H 6500 1690 50  0000 C CNN
+F 2 "" H 6500 1550 50  0000 C CNN
+F 3 "" H 6500 1550 50  0000 C CNN
+	1    6500 1550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6500 1600 6350 1600
+Wire Wire Line
+	6500 1550 6500 1700
+$Comp
+L CONN_01X03 P1
+U 1 1 5A785E95
+P 3200 1050
+F 0 "P1" H 3200 1250 50  0000 C CNN
+F 1 "CONN_01X03" V 3300 1050 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch2.54mm" H 3200 1050 50  0001 C CNN
+F 3 "" H 3200 1050 50  0000 C CNN
+	1    3200 1050
+	-1   0    0    1   
+$EndComp
+$Comp
+L CONN_01X03 P2
+U 1 1 5A785EE2
+P 4750 1050
+F 0 "P2" H 4750 1250 50  0000 C CNN
+F 1 "CONN_01X03" V 4850 1050 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch2.54mm" H 4750 1050 50  0001 C CNN
+F 3 "" H 4750 1050 50  0000 C CNN
+	1    4750 1050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3550 2600 3600 2600
+Wire Wire Line
+	3600 2600 3600 1900
+Wire Wire Line
+	3600 1900 3650 1900
+Wire Wire Line
+	3600 1600 3650 1600
+Wire Wire Line
+	3600 1050 3600 1600
+Wire Wire Line
+	3600 1050 4550 1050
+Wire Wire Line
+	3400 1050 3500 1050
+Wire Wire Line
+	3500 1050 3500 2000
+Wire Wire Line
+	3500 2000 3650 2000
+Wire Wire Line
+	3400 1150 4550 1150
+Wire Wire Line
+	3400 950  4550 950 
+$Comp
+L +5V #PWR04
+U 1 1 5A798A95
+P 4000 800
+F 0 "#PWR04" H 4000 650 50  0001 C CNN
+F 1 "+5V" H 4000 940 50  0000 C CNN
+F 2 "" H 4000 800 50  0000 C CNN
+F 3 "" H 4000 800 50  0000 C CNN
+	1    4000 800 
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR05
+U 1 1 5A798B27
+P 4000 1250
+F 0 "#PWR05" H 4000 1000 50  0001 C CNN
+F 1 "GND" H 4000 1100 50  0000 C CNN
+F 2 "" H 4000 1250 50  0000 C CNN
+F 3 "" H 4000 1250 50  0000 C CNN
+	1    4000 1250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4000 1250 4000 1150
+Connection ~ 4000 1150
+Wire Wire Line
+	4000 800  4000 950 
+Connection ~ 4000 950 
+$Comp
+L C C1
+U 1 1 5A798CD1
+P 6500 1850
+F 0 "C1" H 6525 1950 50  0000 L CNN
+F 1 "C" H 6525 1750 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0805_HandSoldering" H 6538 1700 50  0001 C CNN
+F 3 "" H 6500 1850 50  0000 C CNN
+	1    6500 1850
+	1    0    0    -1  
+$EndComp
+Connection ~ 6500 1600
+Connection ~ 6500 2100
+Wire Wire Line
+	2850 3150 3750 3150
+Connection ~ 3250 3150
+Wire Wire Line
+	3250 3250 3250 3150
+$EndSCHEMATC

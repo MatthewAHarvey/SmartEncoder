@@ -1,5 +1,6 @@
 // ATTINY85 code for rotary encoder
 // 16 MHz PLL works well.
+// Enable BOD to prevent frozen states of the ATTINY in the case of a power dip.
 // Must flash FreqCal and adjust oscillator with oscilloscope or frequency counter to ensure serial works properly
 // Tested with 3 encoders and a hardware serial port on a mega, each message takes 5us and I can generate over 400 events per second when turning an encoder as fast as I can. It goes even faster when I turn two encoders. There will be misses but this is still a responsive system.
 
@@ -12,10 +13,11 @@ const int tx = 0; // software serial transmit. pin 5
 const int rx = 4; // software serial receive. pin 3
 SoftwareSerial SSerial(rx, tx);
 
-// define pins
-const int encPinA = 2; //pin 7, PCINT2
-const int encPinB = 1; //pin 6, PCINT1
+// define pins. A=2,B=1 for Ahmad's power supplies
+const int encPinA = 2; //pin 6, PCINT1
+const int encPinB = 1; //pin 7, PCINT2
 const int encPinC = 3; //pin 2, PCINT3
+bool reverseDirection = false; // By default, keep direction as wired in reference design
 Encoder enc(encPinA, encPinB, encPinC);
 
 // start and stop chars
@@ -80,40 +82,81 @@ void checkEncoder()
 {
     if(state == RUNNING)
     {
-        switch(enc.poll())
+        if(!reverseDirection)
         {
-            case NO_CHANGE:
-                break;
-            case CW_RATE1: 
-                sendState(0);
-                break;
-            case CW_RATE2:
-                sendState(1);
-                break;
-            case CW_RATE3: 
-                sendState(2);
-                break;
-            case ACW_RATE1: 
-                sendState(3);
-                break;
-            case ACW_RATE2: 
-                sendState(4);
-                break;
-            case ACW_RATE3: 
-                sendState(5);
-                break;
-            case BUTTON_UP: 
-                sendState(6);
-                break;
-            case BUTTON_DOWN: 
-                sendState(7);
-                break;
-            case BUTTON_DOUBLECLICK: 
-                sendState(8);
-                break;
-            case BUTTON_HOLD:
-                sendState(9);
-                break;
+            switch(enc.poll())
+            {
+                case NO_CHANGE:
+                    break;
+                case CW_RATE1: 
+                    sendState(0);
+                    break;
+                case CW_RATE2:
+                    sendState(1);
+                    break;
+                case CW_RATE3: 
+                    sendState(2);
+                    break;
+                case ACW_RATE1: 
+                    sendState(3);
+                    break;
+                case ACW_RATE2: 
+                    sendState(4);
+                    break;
+                case ACW_RATE3: 
+                    sendState(5);
+                    break;
+                case BUTTON_UP: 
+                    sendState(6);
+                    break;
+                case BUTTON_DOWN: 
+                    sendState(7);
+                    break;
+                case BUTTON_DOUBLECLICK: 
+                    sendState(8);
+                    break;
+                case BUTTON_HOLD:
+                    sendState(9);
+                    break;
+            }
+        }
+        else
+        {
+            switch(enc.poll())
+            {
+                case NO_CHANGE:
+                    break;
+                case CW_RATE1: 
+                    sendState(3);
+                    break;
+                case CW_RATE2:
+                    sendState(4);
+                    break;
+                case CW_RATE3: 
+                    sendState(5);
+                    break;
+                case ACW_RATE1: 
+                    sendState(0);
+                    break;
+                case ACW_RATE2: 
+                    sendState(1);
+                    break;
+                case ACW_RATE3: 
+                    sendState(2);
+                    break;
+                case BUTTON_UP: 
+                    sendState(6);
+                    break;
+                case BUTTON_DOWN: 
+                    sendState(7);
+                    break;
+                case BUTTON_DOUBLECLICK: 
+                    sendState(8);
+                    break;
+                case BUTTON_HOLD:
+                    sendState(9);
+                    break;
+            }
         }
     }
 }
@@ -233,6 +276,9 @@ void parseMessage()
                     case 'H': // hold button min (ms)
                         value = enc.getButtonHoldTime();
                         break;
+                    case 'R':
+                        value = (uint16_t) reverseDirection;
+                        break;
                     case 'S': // set the state of the encoder
                         // 0 button and encoder disabled
                         // 1 button enabled, encoder disabled
@@ -276,6 +322,9 @@ void parseMessage()
                         break;
                     case 'H': // hold button min (ms)
                         enc.setButtonHoldTime(value);
+                        break;
+                    case 'R':
+                        reverseDirection = (bool) value;
                         break;
                     case 'S': // set the state of the encoder
                         // 0 button and encoder disabled

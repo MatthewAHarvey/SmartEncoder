@@ -18,3 +18,7 @@ Schematic for the FreqCal rotary encoder programme:
 2. Now upload the ATTINY85RotEncCode sketch to each of the ATTINYs.
 
 3. The example SEHandlerTest programme can be uploaded to the master arduino mega.
+
+### To Do:
+1. Add individual encoder direction swap command that can be called any time after init().
+2. Add global encoder direction swap at creation time that tells all the individual encoders to swap direction at init time.

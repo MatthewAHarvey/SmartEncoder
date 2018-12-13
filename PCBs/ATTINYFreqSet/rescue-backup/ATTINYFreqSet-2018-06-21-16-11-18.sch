@@ -1,0 +1,232 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L ATTINY85-P IC1
+U 1 1 5ADDB4DB
+P 4850 2600
+F 0 "IC1" H 3700 3000 50  0000 C CNN
+F 1 "ATTINY85-P" H 5850 2200 50  0000 C CNN
+F 2 "Housings_DIP:DIP-8_W7.62mm_LongPads" H 5850 2600 50  0000 C CIN
+F 3 "" H 4850 2600 50  0000 C CNN
+	1    4850 2600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Rotary_Encoder_Switch SW1
+U 1 1 5ADDB64C
+P 4750 1200
+F 0 "SW1" H 4750 1460 50  0000 C CNN
+F 1 "Rotary_Encoder_Switch" H 4750 940 50  0000 C CNN
+F 2 "MatthewLib:RotEnc" H 4650 1360 50  0001 C CNN
+F 3 "" H 4750 1460 50  0001 C CNN
+	1    4750 1200
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR01
+U 1 1 5ADDB687
+P 6500 3200
+F 0 "#PWR01" H 6500 2950 50  0001 C CNN
+F 1 "GND" H 6500 3050 50  0000 C CNN
+F 2 "" H 6500 3200 50  0000 C CNN
+F 3 "" H 6500 3200 50  0000 C CNN
+	1    6500 3200
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR02
+U 1 1 5ADDB69F
+P 4750 1700
+F 0 "#PWR02" H 4750 1450 50  0001 C CNN
+F 1 "GND" H 4750 1550 50  0000 C CNN
+F 2 "" H 4750 1700 50  0000 C CNN
+F 3 "" H 4750 1700 50  0000 C CNN
+	1    4750 1700
+	1    0    0    -1  
+$EndComp
+$Comp
+L +5V #PWR03
+U 1 1 5ADDB6F3
+P 6500 2250
+F 0 "#PWR03" H 6500 2100 50  0001 C CNN
+F 1 "+5V" H 6500 2390 50  0000 C CNN
+F 2 "" H 6500 2250 50  0000 C CNN
+F 3 "" H 6500 2250 50  0000 C CNN
+	1    6500 2250
+	1    0    0    -1  
+$EndComp
+$Comp
+L BNC P1
+U 1 1 5ADDB73B
+P 3800 3250
+F 0 "P1" H 3810 3370 50  0000 C CNN
+F 1 "BNC" V 3910 3190 50  0000 C CNN
+F 2 "Connectors_TE-Connectivity:BNC_Socket_TYCO-AMP_LargePads" H 3800 3250 50  0001 C CNN
+F 3 "" H 3800 3250 50  0000 C CNN
+	1    3800 3250
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR04
+U 1 1 5ADDB7FA
+P 3800 3550
+F 0 "#PWR04" H 3800 3300 50  0001 C CNN
+F 1 "GND" H 3800 3400 50  0000 C CNN
+F 2 "" H 3800 3550 50  0000 C CNN
+F 3 "" H 3800 3550 50  0000 C CNN
+	1    3800 3550
+	1    0    0    -1  
+$EndComp
+$Comp
+L CONN_02X05 P2
+U 1 1 5ADDB9A9
+P 3800 4250
+F 0 "P2" H 3800 4550 50  0000 C CNN
+F 1 "CONN_02X05" H 3800 3950 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_2x05_Pitch2.54mm" H 3800 3050 50  0001 C CNN
+F 3 "" H 3800 3050 50  0000 C CNN
+	1    3800 4250
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR05
+U 1 1 5ADDBB2B
+P 4200 4600
+F 0 "#PWR05" H 4200 4350 50  0001 C CNN
+F 1 "GND" H 4200 4450 50  0000 C CNN
+F 2 "" H 4200 4600 50  0000 C CNN
+F 3 "" H 4200 4600 50  0000 C CNN
+	1    4200 4600
+	1    0    0    -1  
+$EndComp
+$Comp
+L +5V #PWR06
+U 1 1 5ADDBB80
+P 4200 3900
+F 0 "#PWR06" H 4200 3750 50  0001 C CNN
+F 1 "+5V" H 4200 4040 50  0000 C CNN
+F 2 "" H 4200 3900 50  0000 C CNN
+F 3 "" H 4200 3900 50  0000 C CNN
+	1    4200 3900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4200 4050 4050 4050
+Wire Wire Line
+	4200 3900 4200 4050
+Wire Wire Line
+	4200 4450 4200 4600
+Wire Wire Line
+	4050 4450 4200 4450
+Wire Wire Line
+	3400 2850 3500 2850
+Wire Wire Line
+	3400 4250 3400 2850
+Wire Wire Line
+	3550 4250 3400 4250
+Wire Wire Line
+	3800 3550 3800 3450
+Wire Wire Line
+	3100 3250 3650 3250
+Wire Wire Line
+	3100 2450 3100 4450
+Wire Wire Line
+	3500 2450 3100 2450
+Wire Wire Line
+	6500 2850 6500 3200
+Wire Wire Line
+	6200 2850 6500 2850
+Wire Wire Line
+	6500 2350 6200 2350
+Wire Wire Line
+	6500 2250 6500 2350
+Wire Wire Line
+	3200 2550 3500 2550
+Wire Wire Line
+	3200 900  3200 4350
+Wire Wire Line
+	5050 900  3200 900 
+Wire Wire Line
+	5050 1100 5050 900 
+Wire Wire Line
+	3300 2750 3500 2750
+Wire Wire Line
+	3300 1300 3300 2750
+Wire Wire Line
+	4450 1300 3300 1300
+Wire Wire Line
+	3400 2650 3500 2650
+Wire Wire Line
+	3400 1100 3400 2650
+Wire Wire Line
+	4450 1100 3400 1100
+Connection ~ 4750 1700
+Wire Wire Line
+	4250 1200 4450 1200
+Wire Wire Line
+	4250 1700 4250 1200
+Wire Wire Line
+	5250 1300 5050 1300
+Wire Wire Line
+	5250 1700 5250 1300
+Wire Wire Line
+	4250 1700 5250 1700
+Wire Wire Line
+	3200 4350 3550 4350
+Connection ~ 3200 2550
+Wire Wire Line
+	3100 4450 3550 4450
+Connection ~ 3100 3250
+Wire Wire Line
+	3500 2350 3000 2350
+Wire Wire Line
+	3000 2350 3000 4050
+Wire Wire Line
+	3000 4050 3550 4050
+NoConn ~ 4050 4150
+NoConn ~ 4050 4250
+NoConn ~ 4050 4350
+NoConn ~ 3550 4150
+$EndSCHEMATC

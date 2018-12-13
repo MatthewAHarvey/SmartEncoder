@@ -5,17 +5,33 @@
 // 2 button diasbled, encoder enabled
 // 3 both enabled
 
-SEHandler::SEHandler()
-{
-    // Defaults to Serial1 
-    this->HSerial = &Serial1;
-} 
+// SEHandler::SEHandler()
+// {
+//     // Defaults to Serial1 
+//     //this->HSerial = &Serial1;
+//     //this->reverseDirection = false;
+// } 
 
 SEHandler::SEHandler(HardwareSerial& HSerial)
 {
     //HSerial = HSerial;
     this->HSerial = &HSerial;
+    //this->reverseDirection = false;
 }
+
+// SEHandler::SEHandler(bool reverseDirection)
+// {
+//     // Defaults to Serial1 
+//     this->HSerial = &Serial1;
+//     //this->reverseDirection = reverseDirection;
+// } 
+
+// SEHandler::SEHandler(HardwareSerial& HSerial, bool reverseDirection)
+// {
+//     //HSerial = HSerial;
+//     this->HSerial = &HSerial;
+//     //this->reverseDirection = reverseDirection;
+// }
 
 uint8_t SEHandler::init()
 {
@@ -37,6 +53,8 @@ uint8_t SEHandler::init(uint8_t startAddress)
 
 uint8_t SEHandler::setStartAddress(uint8_t startAddress)
 {
+    // Sets the address of the first ATTINY and returns the number of connected ATTINYs in the loop.
+    // Returns 0 if there was an error
     messageOut[0] = uint8_tToHex((startAddress) / 16);
     messageOut[1] = uint8_tToHex((startAddress) % 16);
     messageOut[2] = calcChecksum(messageOut, 2);
@@ -158,6 +176,11 @@ bool SEHandler::setState(uint8_t address, uint8_t state)
     return sendValue(address, 'S', state);
 }
 
+bool SEHandler::setUseReverseDirection(uint8_t address, bool reverseDirection){
+    // if swapDirection is true, ACW will become CW and vice versa.
+    return sendValue(address, 'R', (uint8_t) reverseDirection);
+}
+
 uint16_t SEHandler::getButtonHoldTime(uint8_t address)
 {
     return getValue(address, 'H');
@@ -186,6 +209,11 @@ uint16_t SEHandler::getRate3Max(uint8_t address)
 uint8_t SEHandler::getState(uint8_t address)
 {
     return getValue(address, 'S');
+}
+
+
+bool SEHandler::getUseReverseDirection(uint8_t address){
+    return (bool) getValue(address, 'R');
 }
 
 void SEHandler::sendMessageOut(uint8_t len)

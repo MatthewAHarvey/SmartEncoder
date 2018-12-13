@@ -9,8 +9,8 @@
 #include "Encoder.h"
 
 // define pins
-const int encPinA = 3; //pin 2 
-const int encPinB = 4; //pin 3 
+const int encPinA = 4; //pin 2 
+const int encPinB = 3; //pin 3 
 const int encPinC = 2; //pin 7
 
 Encoder enc(encPinA, encPinB, encPinC);
@@ -36,10 +36,6 @@ void setup() {
     {
         OSCCAL = EEPROM.read(3);
     }
-
-    EEPROM.update(0, 'C'); // Write CAL so the main code can check for this pattern. If it isn't present, it will not update OSCCAL.
-    EEPROM.update(1, 'A');
-    EEPROM.update(2, 'L');
 
     
 
@@ -67,6 +63,9 @@ void loop() {
             OSCCAL--;
             break;
         case BUTTON_UP: 
+            EEPROM.update(0, 'C'); // Write CAL so the main code can check for this pattern. If it isn't present, it will not update OSCCAL.
+            EEPROM.update(1, 'A');
+            EEPROM.update(2, 'L');
             EEPROM.update(3, OSCCAL);
             break;
         case BUTTON_DOWN: 

@@ -2,7 +2,7 @@
 #define SEHANDLER_H
 
 #include<arduino.h>
-#include<HardwareSerial.h>
+// #include<HardwareSerial.h>
 #include "Encoder.h"
 #include "MilliTimer.h"
 //#include<SoftwareSerial.h>
@@ -10,6 +10,8 @@
 
 // To do
 // class with serial port
+
+// extern HardwareSerial Serial1(2);
 
 enum serialModes{WAITING_FOR_START, COLLECTING_MESSAGE};
 
@@ -44,8 +46,11 @@ struct value_t
 class SEHandler
 {
     public:
-        SEHandler(); // Defaults to Serial1
+        //SEHandler(); // Defaults to Serial1, reverseDirection swaps all the encoder rotation directions globally.
         SEHandler(HardwareSerial& HSerial);
+        // SEHandler(bool reverseDirection); // Defaults to Serial1, reverseDirection swaps all the encoder rotation directions globally.
+        // SEHandler(HardwareSerial& HSerial, bool reverseDirection);
+
         uint8_t init(); // Defaults to address 0.
         uint8_t init(uint8_t startAddress);
         uint8_t setStartAddress(uint8_t startAddress);
@@ -58,6 +63,7 @@ class SEHandler
         bool setRate2Max(uint8_t address, uint16_t t);
         bool setRate3Max(uint8_t address, uint16_t t);
         bool setState(uint8_t address, uint8_t state);
+        bool setUseReverseDirection(uint8_t address, bool reverseDirection);
 
         uint16_t getButtonHoldTime(uint8_t address);
         uint16_t getDoubleClickMax(uint8_t address);
@@ -65,6 +71,7 @@ class SEHandler
         uint16_t getRate2Max(uint8_t address);
         uint16_t getRate3Max(uint8_t address);
         uint8_t getState(uint8_t address);
+        bool getUseReverseDirection(uint8_t address);
 
     private: 
         // __________Variables___________   

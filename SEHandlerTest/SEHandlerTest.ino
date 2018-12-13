@@ -1,7 +1,9 @@
-#include <HardwareSerial.h>
+
 #include "SEHandler.h"
 
-SEHandler encoders(Serial3);
+HardwareSerial espSerial(2); // Needed for ESP32.
+SEHandler encoders(espSerial);
+// SEHandler encoders(Serial1); // For Arduino Mega's Serial1
 event_t event;
 
 void setup()
