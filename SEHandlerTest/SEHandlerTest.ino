@@ -1,4 +1,3 @@
-
 #include "SEHandler.h"
 
 HardwareSerial espSerial(2); // Needed for ESP32.

@@ -1,0 +1,284 @@
+EESchema Schematic File Version 4
+LIBS:ATTINY841Version-cache
+EELAYER 26 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L MCU_Microchip_ATtiny:ATtiny841-SSU U1
+U 1 1 5C41E109
+P 2700 2500
+F 0 "U1" H 2170 2546 50  0000 R CNN
+F 1 "ATtiny841-SSU" H 2170 2455 50  0000 R CNN
+F 2 "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm" H 2700 2500 50  0001 C CIN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-8495-8-bit-AVR-Microcontrollers-ATtiny441-ATtiny841_Datasheet.pdf" H 2700 2500 50  0001 C CNN
+	1    2700 2500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Crystal Y1
+U 1 1 5C41E256
+P 7050 1300
+F 0 "Y1" V 7096 1169 50  0000 R CNN
+F 1 "Crystal" V 7005 1169 50  0000 R CNN
+F 2 "Crystal:Crystal_SMD_3225-4Pin_3.2x2.5mm_HandSoldering" H 7050 1300 50  0001 C CNN
+F 3 "~" H 7050 1300 50  0001 C CNN
+	1    7050 1300
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:C C1
+U 1 1 5C41E376
+P 7550 1050
+F 0 "C1" V 7298 1050 50  0000 C CNN
+F 1 "C" V 7389 1050 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 7588 900 50  0001 C CNN
+F 3 "~" H 7550 1050 50  0001 C CNN
+	1    7550 1050
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:C C2
+U 1 1 5C41E3F8
+P 7550 1550
+F 0 "C2" V 7298 1550 50  0000 C CNN
+F 1 "C" V 7389 1550 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 7588 1400 50  0001 C CNN
+F 3 "~" H 7550 1550 50  0001 C CNN
+	1    7550 1550
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	7400 1550 7050 1550
+Wire Wire Line
+	7050 1550 7050 1450
+Wire Wire Line
+	7050 1150 7050 1050
+Wire Wire Line
+	7050 1050 7400 1050
+Wire Wire Line
+	7700 1050 7850 1050
+Wire Wire Line
+	7850 1050 7850 1550
+Wire Wire Line
+	7850 1550 7700 1550
+$Comp
+L power:GND #PWR07
+U 1 1 5C41E46E
+P 7850 1750
+F 0 "#PWR07" H 7850 1500 50  0001 C CNN
+F 1 "GND" H 7855 1577 50  0000 C CNN
+F 2 "" H 7850 1750 50  0001 C CNN
+F 3 "" H 7850 1750 50  0001 C CNN
+	1    7850 1750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7850 1750 7850 1550
+Connection ~ 7850 1550
+Text Label 3400 2800 0    50   ~ 0
+XTAL1
+Text Label 3400 2900 0    50   ~ 0
+XTAL2
+Wire Wire Line
+	3400 2900 3300 2900
+Wire Wire Line
+	3300 2800 3400 2800
+Text Label 6900 1050 2    50   ~ 0
+XTAL1
+Text Label 6900 1550 2    50   ~ 0
+XTAL2
+Wire Wire Line
+	6900 1550 7050 1550
+Connection ~ 7050 1550
+Wire Wire Line
+	6900 1050 7050 1050
+Connection ~ 7050 1050
+$Comp
+L power:GND #PWR02
+U 1 1 5C41E813
+P 2700 3500
+F 0 "#PWR02" H 2700 3250 50  0001 C CNN
+F 1 "GND" H 2705 3327 50  0000 C CNN
+F 2 "" H 2700 3500 50  0001 C CNN
+F 3 "" H 2700 3500 50  0001 C CNN
+	1    2700 3500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2700 3500 2700 3400
+$Comp
+L power:+5V #PWR01
+U 1 1 5C41E976
+P 2700 1450
+F 0 "#PWR01" H 2700 1300 50  0001 C CNN
+F 1 "+5V" H 2715 1623 50  0000 C CNN
+F 2 "" H 2700 1450 50  0001 C CNN
+F 3 "" H 2700 1450 50  0001 C CNN
+	1    2700 1450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2700 1450 2700 1600
+$Comp
+L MatthewLibrary:Rotary_Encoder_Switch SW1
+U 1 1 5C41EDE2
+P 5900 2900
+F 0 "SW1" H 5900 3267 50  0000 C CNN
+F 1 "Rotary_Encoder_Switch" H 5900 3176 50  0000 C CNN
+F 2 "Rotary_Encoder:RotaryEncoder_Alps_EC12E-Switch_Vertical_H20mm" H 5750 3060 50  0001 C CNN
+F 3 "~" H 5900 3160 50  0001 C CNN
+	1    5900 2900
+	1    0    0    -1  
+$EndComp
+Text Label 3400 2500 0    50   ~ 0
+MOSI
+Text Label 3400 2400 0    50   ~ 0
+MISO
+Wire Wire Line
+	3400 2500 3300 2500
+Wire Wire Line
+	3300 2400 3400 2400
+Text Label 3400 2300 0    50   ~ 0
+SCK
+Text Label 3400 3100 0    50   ~ 0
+nRESET
+Wire Wire Line
+	3400 2300 3300 2300
+Wire Wire Line
+	3400 3100 3300 3100
+$Comp
+L Connector_Generic:Conn_02x05_Odd_Even J1
+U 1 1 5C41F83F
+P 4850 1300
+F 0 "J1" H 4900 1717 50  0000 C CNN
+F 1 "Conn_02x05_Odd_Even" H 4900 1626 50  0000 C CNN
+F 2 "" H 4850 1300 50  0001 C CNN
+F 3 "~" H 4850 1300 50  0001 C CNN
+	1    4850 1300
+	1    0    0    -1  
+$EndComp
+Text Notes 4600 1750 0    50   ~ 0
+Viewed from above
+$Comp
+L power:+5V #PWR04
+U 1 1 5C41FA44
+P 5400 1050
+F 0 "#PWR04" H 5400 900 50  0001 C CNN
+F 1 "+5V" H 5415 1223 50  0000 C CNN
+F 2 "" H 5400 1050 50  0001 C CNN
+F 3 "" H 5400 1050 50  0001 C CNN
+	1    5400 1050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR05
+U 1 1 5C41FAA9
+P 5400 1600
+F 0 "#PWR05" H 5400 1350 50  0001 C CNN
+F 1 "GND" H 5405 1427 50  0000 C CNN
+F 2 "" H 5400 1600 50  0001 C CNN
+F 3 "" H 5400 1600 50  0001 C CNN
+	1    5400 1600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5150 1500 5400 1500
+Wire Wire Line
+	5400 1500 5400 1600
+Wire Wire Line
+	5150 1400 5400 1400
+Wire Wire Line
+	5400 1400 5400 1500
+Connection ~ 5400 1500
+Wire Wire Line
+	5150 1100 5400 1100
+Wire Wire Line
+	5400 1100 5400 1050
+Wire Wire Line
+	5150 1200 5400 1200
+Wire Wire Line
+	5400 1200 5400 1300
+Connection ~ 5400 1400
+Wire Wire Line
+	5150 1300 5400 1300
+Connection ~ 5400 1300
+Wire Wire Line
+	5400 1300 5400 1400
+Text Label 4500 1400 2    50   ~ 0
+SCK
+Text Label 4500 1500 2    50   ~ 0
+MISO
+Text Label 4500 1100 2    50   ~ 0
+MOSI
+Text Label 4500 1300 2    50   ~ 0
+nRESET
+Wire Wire Line
+	4500 1300 4650 1300
+Wire Wire Line
+	4650 1400 4500 1400
+Wire Wire Line
+	4500 1500 4650 1500
+Wire Wire Line
+	4500 1100 4650 1100
+NoConn ~ 4650 1200
+$Comp
+L power:GND #PWR03
+U 1 1 5C4224E1
+P 5350 3100
+F 0 "#PWR03" H 5350 2850 50  0001 C CNN
+F 1 "GND" H 5355 2927 50  0000 C CNN
+F 2 "" H 5350 3100 50  0001 C CNN
+F 3 "" H 5350 3100 50  0001 C CNN
+	1    5350 3100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5350 3100 5350 2900
+Wire Wire Line
+	5350 2900 5600 2900
+$Comp
+L power:GND #PWR06
+U 1 1 5C422AE5
+P 6300 3100
+F 0 "#PWR06" H 6300 2850 50  0001 C CNN
+F 1 "GND" H 6305 2927 50  0000 C CNN
+F 2 "" H 6300 3100 50  0001 C CNN
+F 3 "" H 6300 3100 50  0001 C CNN
+	1    6300 3100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6300 3100 6300 3000
+Wire Wire Line
+	6300 3000 6200 3000
+Text Label 3400 2000 0    50   ~ 0
+TX0
+Text Label 3400 2100 0    50   ~ 0
+RX0
+Wire Wire Line
+	3400 2100 3300 2100
+Wire Wire Line
+	3300 2000 3400 2000
+$Comp
+L LED:WS2812B D1
+U 1 1 5C423FCE
+P 7400 3800
+F 0 "D1" H 7741 3846 50  0000 L CNN
+F 1 "WS2812B" H 7741 3755 50  0000 L CNN
+F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 7450 3500 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 7500 3425 50  0001 L TNN
+	1    7400 3800
+	1    0    0    -1  
+$EndComp
+$EndSCHEMATC
