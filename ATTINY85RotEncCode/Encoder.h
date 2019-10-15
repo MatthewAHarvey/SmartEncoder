@@ -90,10 +90,13 @@ enum resultEnum
 class Encoder
 {
     public:
+        Encoder(); // default to no pins so that we can define an array of them.
         Encoder(uint8_t pinA, uint8_t pinB);
         Encoder(uint8_t pinA, uint8_t pinB, uint8_t pinC);
         
         void init(); // Setup pins
+        void init(uint8_t pinA, uint8_t pinB); 
+        void init(uint8_t pinA, uint8_t pinB, uint8_t pinC);
         resultEnum poll(bool rateless = false); // checks the state of the encoder and returns new steps if necessary. Call in pinchange interrupt routine or poll in main loop. If polling, do not including blocking code such as delay()!
         resultEnum poll_rateless();
 

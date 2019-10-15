@@ -2,6 +2,9 @@
 #include "arduino.h"
 #include "MilliTimer.h"
 
+Encoder::Encoder(){
+
+}
 
 Encoder::Encoder(uint8_t pinA, uint8_t pinB)
 {
@@ -22,6 +25,32 @@ void Encoder::init()
     pinMode(_pinA, INPUT_PULLUP);
     pinMode(_pinB, INPUT_PULLUP);
     if(buttonEnabled) { pinMode(_pinC, INPUT_PULLUP); }
+
+    buttonDebounceTimer.updateTimeOut(buttonDebounceTime);
+    buttonHoldTimer.updateTimeOut(buttonHoldMin);
+    buttonDoubleClickTimer.updateTimeOut(doubleClickMax);
+}
+
+void Encoder::init(uint8_t pinA, uint8_t pinB){
+    _pinA = pinA;
+    _pinB = pinB;
+    buttonEnabled = false;
+
+    pinMode(_pinA, INPUT_PULLUP);
+    pinMode(_pinB, INPUT_PULLUP);
+
+    // buttonDebounceTimer.updateTimeOut(buttonDebounceTime);
+    // buttonHoldTimer.updateTimeOut(buttonHoldMin);
+    // buttonDoubleClickTimer.updateTimeOut(doubleClickMax);
+}
+
+void Encoder::init(uint8_t pinA, uint8_t pinB, uint8_t pinC){
+    _pinA = pinA;
+    _pinB = pinB;
+    _pinC = pinC;
+    pinMode(_pinA, INPUT_PULLUP);
+    pinMode(_pinB, INPUT_PULLUP);
+    pinMode(_pinC, INPUT_PULLUP);
 
     buttonDebounceTimer.updateTimeOut(buttonDebounceTime);
     buttonHoldTimer.updateTimeOut(buttonHoldMin);
